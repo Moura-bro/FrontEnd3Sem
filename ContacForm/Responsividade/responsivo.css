@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+/* Desktop Frist >= 992px*/
+
+h1{
+    color: palevioletred;
+}
+
+img{
+    width: 200px;
+}
+
+
+
+
+/*Breakpoints*/
+
+
+
+
+
+/* Tablet < 992px (768px - 991px)*/
+@media screen and (max-width: 991px) {
+    h1{ 
+        color: aqua;
+    }
+
+    img {
+        display: none;
+    }
+}
+
+
+
+/* Mobile < 768px (0px - 767px) */
+@media screen and (max-width: 767px) {
+    h1{
+        background-color: blue;
+        color: aquamarine;
+    }
+
+    img{
+        display: block;
+    }
+}
