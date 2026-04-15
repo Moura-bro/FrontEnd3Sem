@@ -17,7 +17,7 @@ body {
     background-image: linear-gradient(to right bottom, #18a2c9, #72c3bd);
     background-repeat: no-repeat;
     width: 100%;
-    
+
 }
 
 .container {
@@ -83,7 +83,7 @@ body {
     /* gap: 30px; */
     justify-content: space-between;
     width: 90%;
-    
+
 }
 
 
@@ -103,7 +103,7 @@ body {
     border-radius: 3px;
     outline: none;
     padding: 5px 10px;
-    
+
 
     transition: background-color 0.4s, color 0.4s, border 0.4s;
 }
@@ -141,16 +141,16 @@ body {
     resize: none;
 }
 
-.contact-form__col-button{
+.contact-form__col-button {
     display: flex;
     justify-content: center;
     width: 90%;
-    
+
 }
 
 
 
-.contact-form__button{
+.contact-form__button {
     width: 36%;
     height: 55px;
 
@@ -164,18 +164,59 @@ body {
     outline: none;
     padding: 5px 10px;
     margin: 7px;
-    
+
 }
 
-.contact-form__button:hover{
+.contact-form__button:hover {
     background-color: #18a2c9;
 }
 
 
 /* Breakpoints - tablets*/
-@media screen and (max-width: 991px) {}
+@media screen and (max-width: 991px) {
+    .container {
+        max-width: 750px;
+    }
+
+    .header__logo {
+        width: 150px;
+    }
+
+    .header__text {
+        font-size: larger;
+    }
+
+    .contact-form__label {
+        font-size: small;
+    }
+}
 
 
 
 /*Breakpoints - smartphones*/
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+
+    .contact-form__input {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+    .contact-form__col-b {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        
+
+
+
+    }
+
+    .contact-form__label {
+        display: none;
+    }
+}
