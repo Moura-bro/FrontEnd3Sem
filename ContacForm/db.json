@@ -1,0 +1,100 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "contatos": [
+    {
+      "nome": "Pedro lucas",
+      "sobrenome": "moura",
+      "email": "pluca@gmail.com",
+      "id": "8zsELdTOlog"
+    },
+    {
+      "nome": "Pedro lucas",
+      "sobrenome": "moura",
+      "Email": "Pluca@gmail.com",
+      "id": "uAmwIP_4LC4"
+    },
+    {
+      "nome": "Rafael",
+      "sobrenome": "Barriento",
+      "Email": "Moura@gmail.com",
+      "id": "nnVqov3qnWs"
+    },
+    {
+      "nome": "Eduardo",
+      "sobrenome": "Costa",
+      "Email": "SenaiProf@gmail.com",
+      "id": "k2DKKXjeth8"
+    },
+    {
+      "nome": "Marcos",
+      "sobrenome": "Santos",
+      "Email": "SenaiProf@gmail.com",
+      "id": "E_lcVn6JZDI"
+    },
+    {
+      "nome": "Joao",
+      "sobrenome": "Santos",
+      "Email": "aleatorio@gmail.com",
+      "id": "4vSAq18bB4c"
+    }
+  ],
+  "produtos": [
+    {
+      "nome": "Maca",
+      "preco": "20",
+      "quantidade": "300",
+      "id": "1"
+    },
+    {
+      "nome": "Pera",
+      "preco": "27",
+      "quantidade": "50",
+      "id": "JiUQfxcOl6E"
+    },
+    {
+      "nome": "uva",
+      "preco": "3",
+      "quantidade": "500",
+      "id": "3bfHU8dKcOY"
+    },
+    {
+      "nome": "Banana",
+      "preco": "8",
+      "quantidade": "90",
+      "id": "iQ2NtVXORzo"
+    },
+    {
+      "nome": "Pessago",
+      "preco": "12",
+      "quantidade": "70",
+      "id": "DTNY0S7YfsY"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

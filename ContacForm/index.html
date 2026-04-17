@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./Css/style.css">
+    
 </head>
 
 <body>
@@ -59,7 +60,7 @@
                     </div>
 
                     <div class="contact-form__col-b">
-                        <input class="contact-form__input contact-form__input--1Terco" name="prefixo " id="prefixo "
+                        <input class="contact-form__input contact-form__input--1Terco" name="prefixo" id="prefixo"
                             placeholder="55" type="number">
 
 
@@ -80,7 +81,7 @@
 
                     <div class="contact-form__col-b">
                         <input class="contact-form__input contact-form__input--1quarto " name="cep" id="cep"
-                            placeholder="cep" type="number">
+                            placeholder="cep: 9999-999" type="number" onblur="buscarEndereco(this.value)">
 
 
                         <input class="contact-form__input contact-form__input--metade" name="ruaC" id="ruaC"
@@ -144,8 +145,7 @@
                     </div>
 
                     <div class="contact-form__col-button">
-                        <button class="contact-form__button" type="button" id="cadastrar" name="cadastrar"
-                            onclick="minhaFuncao();">
+                        <button class="contact-form__button" type="button" id="cadastrar" name="cadastrar" onclick="minhaFuncao()">
 
                             cadastrar
                         </button>
@@ -161,127 +161,7 @@
         </div>
     </main>
 
-    <script>
-        function minhaFuncao() {
-            let nome = document.getElementById("nome").value.trim();
-            let Sobrenome = document.getElementById("Sobrenome").value.trim();
-            let email = document.getElementById("E-mail").value.trim();
-            let prefixo = document.getElementById("prefixo").value.trim();
-            let ddd = document.getElementById("ddd").value.trim();
-            let numero = document.getElementById("numero").value.trim();
-            let cep = document.getElementById("cep").value.trim();
-            let ruaC = document.getElementById("ruaC").value.trim();
-            let numeroendereco = document.getElementById("numeroendereco").value.trim();
-            let ape = document.getElementById("ape").value.trim();
-            let bairro = document.getElementById("bairro").value.trim();
-            let cidade = document.getElementById("cidade").value.trim();
-            let estado = document.getElementById("estado").value.trim();
-            let Anotacoes = document.getElementById("Anotacoes").value.trim();
-
-            if (nome.length == 0) {
-                formError("nome");
-            } else {
-                reiniciaBorda("nome");
-            }
-
-            if (nome.length == 0) {
-                formError("Sobrenome");
-            } else {
-                reiniciaBorda("Sobrenome");
-            }
-
-            if (nome.length == 0) {
-                formError("E-mail");
-            } else {
-                reiniciaBorda("E-mail");
-            }
-
-            if (nome.length == 0) {
-                formError("prefixo");
-            } else {
-                reiniciaBorda("prefixo");
-            }
-
-            if (nome.length == 0) {
-                formError("ddd");
-            } else {
-                reiniciaBorda("ddd");
-            }
-
-            if (nome.length == 0) {
-                formError("numero");
-            } else {
-                reiniciaBorda("numero");
-            }
-
-            if (nome.length == 0) {
-                formError("cep");
-            } else {
-                reiniciaBorda("cep");
-            }
-
-            if (nome.length == 0) {
-                formError("ruaC");
-            } else {
-                reiniciaBorda("ruaC");
-            }
-
-            if (nome.length == 0) {
-                formError("numeroendereco");
-            } else {
-                reiniciaBorda("numeroendereco");
-            }
-
-            if (nome.length == 0) {
-                formError("ape");
-            } else {
-                reiniciaBorda("ape");
-            }
-
-            if (nome.length == 0) {
-                formError("bairro");
-            } else {
-                reiniciaBorda("bairro");
-            }
-
-            if (nome.length == 0) {
-                formError("cidade");
-            } else {
-                reiniciaBorda("cidade");
-            }
-
-            if (nome.length == 0) {
-                formError("estado");
-            } else {
-                reiniciaBorda("estado");
-            }
-
-            if (nome.length == 0) {
-                formError("Anotacoes");
-            } else {
-                reiniciaBorda("Anotacoes");
-            }
-
-            //literal template: e a crase 
-            // alert(`Nome: ${nome} ${Sobrenome} | Email: ${email} !`);
-            // console.log(`
-            //     Aluno: ${nome} ${Sobrenome}
-            //     E-mail ${email}
-            // `)
-        }//fim
-
-        //Funcao que pinta a borada dos campos que faltam prencher 
-        function formError(fildId) {
-            document.getElementById(fildId).style.border = "1px solid red";
-        }
-
-        function reiniciaBorda(fildId) {
-            document.getElementById(fildId).style.border = "none";
-        }
-
-
-
-    </script>
+    <script src="./Js/script.js"></script>
 
 
 </body>
