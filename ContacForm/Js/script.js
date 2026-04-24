@@ -65,8 +65,8 @@ function minhaFuncao() {
         console.log(objetoContato);
 
         //Cadastrar na API
-        let resposta = await fetch("http://localhost:3000/contatos",{
-            method:"POST",
+        let resposta = await fetch("http://localhost:3000/contatos", {
+            method: "POST",
             body: JSON.stringify(objetoContato),
             headers: {
                 "Content-Type": "application/json; charset=UTF-8"

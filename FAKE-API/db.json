@@ -11,5 +11,47 @@
       "id": "ElIXinHIlaw"
     }
   ],
+  "imc": [
+    {
+      "nome": "Eduardo",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "textoSituacao": "Obesidade Grau I",
+      "id": "0pSUJJLnunA"
+    },
+    {
+      "nome": "Eduardo",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "textoSituacao": "Obesidade Grau I",
+      "id": "spZyMYweG18"
+    },
+    {
+      "nome": "Eduardo",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "textoSituacao": "Obesidade Grau I",
+      "id": "aKVHjZh7ctY"
+    },
+    {
+      "nome": "torolho",
+      "altura": 1.85,
+      "peso": 62,
+      "IMC": 18.115412710007302,
+      "textoSituacao": "Magreza leve",
+      "id": "SEMzDeQdt2E"
+    },
+    {
+      "nome": "Eduardo",
+      "altura": 1.67,
+      "peso": 85,
+      "IMC": 30.477966223242138,
+      "textoSituacao": "Obesidade Grau I",
+      "id": "a-1wEegoFhY"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
