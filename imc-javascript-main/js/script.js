@@ -37,11 +37,13 @@ function calcular() {
                             <td>${peso}</td>
                             <td>${IMC.toFixed(2)}</td>
                             <td>${textoSituacao}</td>`
-      //linpar os campos do formulario
-      document.getElementById("nome").value = "";
-      document.getElementById("altura").value = "";
-      document.getElementById("peso").value = "";
-      alert(`${nome} foi cadastrado no banco
+
+
+        //linpar os campos do formulario
+        document.getElementById("nome").value = "";
+        document.getElementById("altura").value = "";
+        document.getElementById("peso").value = "";
+        alert(`${nome} foi cadastrado no banco
                Nome: ${nome}
                IMC:  ${IMC}
                Situação: ${textoSituacao}`);
@@ -135,11 +137,11 @@ async function buscarIMCs() {
                             <td>${dadosRetornados[i].textoSituacao}</td>
                             </tr>`
         }
-        
+
         tabela.innerHTML = template;
     } catch (error) {
-   console.log(error);
-   
+        console.log(error);
+
     }
 }
 
