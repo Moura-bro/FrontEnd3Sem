@@ -30,6 +30,7 @@ function calcular() {
     const retorno = cadastrarIMC(objIMC);
 
     if (retorno) {
+        buscarIMCs();   
         const tabela = document.getElementById("cadastro");
 
         tabela.innerHTML += `  <td>${nome}</td>
@@ -121,6 +122,12 @@ async function buscarIMCs() {
     try {
         const retorno = await fetch("http://localhost:3000/imc");
         const dadosRetornados = await retorno.json();
+
+
+        //Ordena pelo nome em ordem cresente
+        dadosRetornados.sort((a,b) => {
+            return a.nome.localeCompare(b.nome);
+        });
 
         console.log(dadosRetornados);
 

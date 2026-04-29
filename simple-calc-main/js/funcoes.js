@@ -38,9 +38,14 @@ function calcular() {
     }
 
 
+    console.log(n1);
+    console.log(n2);
+    console.log(op);
+    console.log(resultado);
+
     const objCalcular = {
         n1: n1,
-        n2: n1,
+        n2: n2,
         op: op,
         resultado: resultado
 
@@ -50,10 +55,12 @@ function calcular() {
     //saída
     // console.log(`Resultado da operação: ${resultado}`);
     document.getElementById('resultado').innerHTML = resultado;
-    if(retorno){
-    const card = document.getElementById("cadastro");
 
-    card.innerHTML += ` 
+    if (retorno) {
+        buscarIMCs();
+        const card = document.getElementById("cadastro");
+
+        card.innerHTML += ` 
     <article class="data__card-result">
             <span><strong>Primeiro Número:</strong>${n1}</span>
             <span><strong>Segundo Número:</strong>${n2}</span>
@@ -63,6 +70,9 @@ function calcular() {
     }
 }//Fin da Funcao calcular 
 
+
+
+//Funcao cadastro, Ela cadstra as informacoes na API
 async function cadastroAPI(objCalcular) {
     try {
         let resposta = await fetch("http://localhost:3000/Calculos", {
@@ -81,7 +91,9 @@ async function cadastroAPI(objCalcular) {
 
     }
 
-}
+}//fim da funcao cadastroAPI
+
+
 
 
 
@@ -110,8 +122,38 @@ function dividir(valor1, valor2) {
     return valor1 / valor2;
 }
 
+//----------------------------------------------------------------------
+async function buscarIMCs() {
+    try {
+        const retorno = await fetch("http://localhost:3000/Calculos");
+        const dadosRetornados = await retorno.json();
 
 
+        //Ordena os cards pelo seu resultado, (n1 e n2 sao objetos)
+        dadosRetornados.sort((a, b) => parseFloat(a.resultado) - parseFloat(b.resultado));
+
+        console.log(dadosRetornados);
+
+        const card = document.getElementById("cadastro");
+        let template = "";
+
+        for (let i = 0; i < dadosRetornados.length; i++) {
+
+            template += ` 
+            <article class="data__card-result">
+            <span><strong>Primeiro Número:</strong>${dadosRetornados[i].n1}</span>
+            <span><strong>Segundo Número:</strong>${dadosRetornados[i].n2}</span>
+            <span><strong>Operação:</strong>${dadosRetornados[i].op}</span>
+            <span><strong>Resultado:</strong>${dadosRetornados[i].resultado}</span>
+            </article> `
+        }
+
+        card.innerHTML = template;
+    } catch (error) {
+        console.log(error);
+
+    }
+}
 
 
 
