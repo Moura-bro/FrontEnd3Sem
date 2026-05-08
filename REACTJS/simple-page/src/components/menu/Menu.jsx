@@ -1,5 +1,5 @@
 import "./Menu.css"
-import zeroTwo from "../../assets/download (7).jpg"; 
+import CardPerfil from "../cardperfil/cardperfil";
 function Menu () {
     return (
     
@@ -11,9 +11,7 @@ function Menu () {
         <a href="#" className="menu__item menu__item--signin">Entrar</a>
         <a href="#" className="menu__item menu__item--signup">Cadstrar</a>
 
-        <div class="card-perfil">
-            <img class="card-perfil__image" src={zeroTwo} alt="Imagem do usuario"/>
-        </div>
+        <CardPerfil/>
 
     </nav>
 
