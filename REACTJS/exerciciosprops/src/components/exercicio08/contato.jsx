@@ -8,9 +8,15 @@
 
 import "./contato.css"
 
-function Contato ({nome, telefone, email}){
+function Contato({ nome, telefone, email }) {
     return (
-        <p>Nome: {nome} Telefone: {telefone} email:{email}</p>
+        <div className="contato">
+            <p className="contato__cadastro">
+                Nome: {nome}
+                Telefone: {telefone}
+                email:{email}
+            </p>
+        </div>
     )
 }
 

@@ -8,8 +8,16 @@
 
 import "./perfil.css"
 
-function Perfil ({nome,idade,profissao}){
-    return (<p> Nome: {nome}  |Idade:{idade}  |Profissao{profissao}</p>)
+function Perfil({ nome, idade, profissao }) {
+    return (
+        <div className="perfil">
+            <p className="perfil__ficha">
+                |Nome: {nome}
+                |Idade:{idade}
+                |Profissao{profissao}
+            </p>
+        </div>
+    )
 }
 
 export default Perfil

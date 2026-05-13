@@ -8,14 +8,16 @@
 
 import "./filme.css"
 
-function Filme ({titulo, ano, genero, nota}){
-    return(
-        <p>
-            Titulo: {titulo}
-            Ano: {ano}
-            Genero: {genero}
-            Nota: {nota}
-        </p>
+function Filme({ titulo, ano, genero, nota }) {
+    return (
+        <div className="filme">
+            <p className="filme__poster">
+                |Titulo: {titulo}
+                |Ano: {ano}
+                |Genero: {genero}
+                |Nota: {nota}
+            </p>
+        </div>
     )
 }
 

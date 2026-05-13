@@ -7,7 +7,11 @@
 import "./Saudacao.css"
 
 function Saudacao ({nome}){
-    return <h1>Olá, {nome}! Seja bem-vindo(a)!</h1>
+    return (
+        <div className="saudacao">
+            <p className="saudacao__frase">Olá, {nome}! Seja bem-vindo(a)!</p>
+        </div>
+    )
 }
 
 export default Saudacao

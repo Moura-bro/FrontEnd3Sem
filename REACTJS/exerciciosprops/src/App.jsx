@@ -56,7 +56,7 @@ return(
   // </>
 
   //Exercicio 06
-  // <Aluno nome= "Rafael" curso= "Dev" image= "" />
+  // <Aluno nome= "Rafael" curso= "Dev" image= "Swt.jpg"/>
 
   //Exercicio 08
   // <>
@@ -71,12 +71,12 @@ return(
   // <Jogo nome="Far-cry"  plataforma="Xobox/Ps4/Pc" preco={46.89} image=""/>
 
 
-  //Exercicio 10
-  // <Itemloja nome="Carne" preco={30.87} categoria="Proteina animal" estoque={40}/>
+  // Exercicio 10
+  <Itemloja nome="Carne" preco={30.87} categoria="Proteina animal" estoque={0}/>
 
 
   //------------------------------------------------------------------------------------
-  <Produtos />
+  // <Produtos />
 
  )
 }

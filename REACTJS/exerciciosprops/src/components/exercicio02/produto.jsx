@@ -11,10 +11,15 @@
 
 import "./produto.css"
 
-function Produto ({nome, preco, descricao }){
-    return (<h1> Nome do Produto: {nome}  - Preço: R$ {preco} - Descrição do produto:{descricao}
-    </h1>
-
+function Produto({ nome, preco, descricao }) {
+    return (
+        <div className="produto">
+            <p className="produto__item">
+                - Nome do Produto: {nome}
+                - Preço: R$ {preco}
+                - Descrição do produto:{descricao}
+            </p>
+        </div>
     )
 }
 
