@@ -1,0 +1,13 @@
+{
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Notebook",
+      "preco": 5000,
+      "descricao": "Notebook Gamer.",
+      "quantidade": 10,
+      "imagem": ""
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
