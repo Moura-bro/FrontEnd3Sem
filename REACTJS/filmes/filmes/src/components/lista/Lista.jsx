@@ -39,9 +39,15 @@ const Lista = (props) => {
                                             {props.tipoLista === "genero" ? item.nome : item.titulo}
                                         </td>
                                         <td data-cell="Gênero" style={{ display: props.visibilidade }}>
-                                            {/* Segunda célula: mostra o nome do gênero caso o tipo da lista seja "filme".*/}
-                                            {/* adicionar essa linha depois de fazer o metd de lista filme: */}
-                                            {props.tipoLista === "filme" ? (item.genero?.nome || '-') : '-'}
+                                            {
+                                                props.tipoLista === "filme"
+                                                    ? (
+                                                        props.listaGeneros?.find(
+                                                            g => g.idGenero === item.idGenero
+                                                        )?.nome || "-"
+                                                    )
+                                                    : "-"
+                                            }
                                         </td>
                                         <td data-cell="Editar">
                                             <button className="icon" onClick={() => (props.funcEditar(item))}>
@@ -54,16 +60,16 @@ const Lista = (props) => {
                                             </button>
                                         </td>
                                     </tr>
-                                )) 
+                                ))
                             ) : (
-                                    // Caso a lista esteja vazia ou não exista, mostra uma linha dizendo que não há registros
-                                    <tr>
-                                        <td>Nenhum registro encontrado.</td>
-                                    </tr>
-                                )
+                                // Caso a lista esteja vazia ou não exista, mostra uma linha dizendo que não há registros
+                                <tr>
+                                    <td>Nenhum registro encontrado.</td>
+                                </tr>
+                            )
                             }
-                                
-                        
+
+
                         </tbody>
                     </table>
                 </div>

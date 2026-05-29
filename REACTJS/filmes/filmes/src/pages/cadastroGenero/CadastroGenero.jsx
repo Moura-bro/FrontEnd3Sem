@@ -12,7 +12,7 @@ const CadastroGenero = () => {
 
     //Variaveis e states
     const [valor, setValor] = useState("")
-    const [listaGeneros, setlistaGeneros] = useState([])
+    const [listaGeneros, setListaGeneros] = useState([])
     const [editar, setEditar] = useState(false)
     const [Id, setId] = useState();
 
@@ -25,7 +25,7 @@ const CadastroGenero = () => {
         try {
             const retornoAPI = await api.get("/Genero")
 
-            setlistaGeneros(retornoAPI.data)
+            setListaGeneros(retornoAPI.data)
         } catch (error) {
             alert("Problemas ao carregar os dados da API")
         }
@@ -206,11 +206,7 @@ const CadastroGenero = () => {
         }
     };
 
-
-
-
-
-
+//---------------------------------------------------------------------
     return (
         <>
             <Header />
