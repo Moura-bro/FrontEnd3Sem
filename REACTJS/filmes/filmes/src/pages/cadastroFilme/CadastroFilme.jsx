@@ -12,6 +12,7 @@ const CadastroFilme = () => {
   // States e Variaves
   const [valor, setValor] = useState("")
   const [editar, setEditar] = useState(false)
+  const [Id, setId] = useState()
   const [listaFilmes, setListaFilmes] = useState([])
   const [listaGeneros, setListaGeneros] = useState([])
   const [generoSelecionado, setGeneroSelecionado] = useState("")
@@ -59,7 +60,7 @@ const CadastroFilme = () => {
     if (valor.trim().length == 0) {
       // alert("Preenchaer o genero")
       Alerta({
-        title: 'Cadastro de Genero!',
+        title: 'Cadastro de Filme!',
         text: 'Preencher o genero',
         icon: 'error',
         confirmButtonText: 'OK'
@@ -91,13 +92,13 @@ const CadastroFilme = () => {
 
 
     try {
-      const retornoAPI = await api.post("/Filme", formData,{
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
-  })
+      const retornoAPI = await api.post("/Filme", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
       Alerta({
-        title: 'Cadastro de Genero!',
+        title: 'Cadastro de Filme!',
         text: `${valor} Cadastraso com Sucesso`,
         icon: 'success',
         confirmButtonText: 'OK'
@@ -105,7 +106,7 @@ const CadastroFilme = () => {
 
       getFilmes()
 
-      // limparFormulario()
+      limparFormulario()
 
       //limpar campos
     } catch (error) {
@@ -113,7 +114,7 @@ const CadastroFilme = () => {
       console.log(error.response)
       console.log(error.response.data)
       Alerta({
-        title: 'Cadastro de Genero!',
+        title: 'Cadastro de Filme!',
         text: 'Erro ao cadastrar na API',
         icon: 'error',
         confirmButtonText: 'OK'
@@ -129,40 +130,125 @@ const CadastroFilme = () => {
 
   //Put-------------------------
 
-  const preEditar = () => {
+  const preEditar = (item) => {
+    console.log(item);
 
+    setEditar(true)
+    setValor(item.titulo)
+    setId(item.idFilme)
+    setGeneroSelecionado(item.idGenero)
   }
 
 
 
-  const editarFilme = () => {
-    Alerta({
-      title: "Cadastro de Filme",
-      text: "Editar Filme em desevolvimesnto",
-      icon: "info",
-      confirmButtonText: "OK"
-    })
-  }
+  const editarFilme = async (e, item) => {
+
+
+    e.preventDefault();
+
+    //validar o formulario
+    if (valor.trim().length == 0) {
+      // alert("Preencha os campos corretamente");
+      Alerta({
+        title: 'Editar Filme!',
+        text: 'Preencha os campos corretamente',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
+      return false;
+    }
+
+     //Formdata
+    const formData = new FormData();
+
+    formData.append("titulo", valor);
+    formData.append("idGenero", generoSelecionado);
+    formData.append("imagem", "default.jpg");
+
+    try {
+      const retornoAPI = await api.put(`/Filme/${Id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      // alert("Genero editado com sucesso");
+      Alerta({
+        title: 'Editar Filme!',
+        text: 'Genero editado com sucesso',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      })
+      getFilmes();
+      limparFormulario();
+    } catch (error) {
+      console.log(error);
+      // alert("Ocorreu algum erro ao editar, tente novamente mais tarde");
+      Alerta({
+        title: 'Editar Filme!',
+        text: 'Ocorreu algum erro ao editar, tente novamente mais tarde',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
+    }
+  }//Fim da Funcao editar
 
   //Delete----------------------
-  const excluirFilme = () => {
-    Alerta({
-      title: "Cadastro de Filme",
-      text: "Cadastrar Filme em desevolvimesnto",
-      icon: "info",
-      confirmButtonText: "OK"
+  const excluirFilme = async (item) => {
+
+    const result = await Alerta({
+      title: "Cadastro de genero?",
+      text: `Deseja excluir o Genero ${item.nome}?!`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#ff0202ff",
+      cancelButtonColor: "#a4a4a4ff",
+      confirmButtonText: "Deletar",
+      cancelButtonText: "Cancelar"
     })
-  }
+
+    if (!result.isConfirmed) {
+      return false
+    }
+
+
+
+    try {
+
+      const retornoAPI = await api.delete(`/Filme/${item.idFilme}`)
+      if (retornoAPI.status == 200 || retornoAPI.status == 204) {
+        // alert("Gênero excluído com sucesso!")
+        Alerta({
+          title: 'Excluir Genero',
+          text: `${valor} Excluido com Sucesso`,
+          icon: 'success',
+          confirmButtonText: 'OK'
+        })
+
+        getFilmes()
+      } else {
+        // alert("Ocorreu um erro ao excluir o gênero.")
+        Alerta({
+          title: 'Excluir Genero',
+          text: 'Ocorreu um erro ao excluir o gênero.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
+      }
+
+
+    } catch (error) {
+      alert("Ocorreu um erro ao excluir o gênero.")
+      console.log(error)
+    }
+  }// fim fa Função Excluir
 
 
   //----------------------------
   const limparFormulario = () => {
-    Alerta({
-      title: "Cadastro de Filme",
-      text: "Limpar formulario Filme em desevolvimesnto",
-      icon: "info",
-      confirmButtonText: "OK"
-    })
+    setValor("");
+    setGeneroSelecionado("");
+    setEditar(false);
+    setId(null);
   }
 
   //Funcoes
