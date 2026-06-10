@@ -20,7 +20,11 @@ const Rotas = () => {
           } />
 
 
-        <Route path="/generos" element={<CadastroGenero />} />
+        <Route path="/generos" element={
+           <PrivateRoute>
+          <CadastroGenero/> 
+          </PrivateRoute>
+          } />
 
       </Routes>
     </BrowserRouter>

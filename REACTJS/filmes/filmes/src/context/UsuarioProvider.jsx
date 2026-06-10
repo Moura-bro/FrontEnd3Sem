@@ -8,7 +8,7 @@ const UsuarioProvider = ({ children }) => {
 
     //Puxa o Usuario do Localstorage
     useEffect(() => {
-       const usuarioStorage = JSON.parse(localStorage.getItem("usuario") || "null")
+       const usuarioStorage = JSON.parse(localStorage.getItem("usuario") || null)
        setUsuario(usuarioStorage)
     },[])
     
