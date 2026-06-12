@@ -16,4 +16,7 @@ const api = axios.create({
 });
 
 // Exporta a instância do axios para ser usada em outros arquivos do projeto
+export const localAPIImagePath = `https://localhost:${apiPort}/`;
+
+// Exporta a instância do axios para ser usada em outros arquivos do projeto
 export default api;

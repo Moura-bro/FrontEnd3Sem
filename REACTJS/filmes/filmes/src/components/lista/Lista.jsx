@@ -3,6 +3,7 @@ import "./Lista.css";
 // Importação de imagens:
 import Editar from "../../assets/img/pen-to-square-solid.svg";
 import Excluir from "../../assets/img/trash-can-regular.svg";
+import { localAPIImagePath } from "../../services/services";
 
 const Lista = (props) => {
     return (
@@ -20,6 +21,7 @@ const Lista = (props) => {
                                 {/* th => table head */}
                                 <th>Nome</th>
                                 <th style={{ display: props.visibilidade }}>Gênero</th>
+                                <th style={{ display: props.visibilidade }}>Imagem</th>
                                 <th>Editar</th>
                                 <th>Excluir</th>
                             </tr>
@@ -38,6 +40,7 @@ const Lista = (props) => {
                                             {/* titulo == filme */}
                                             {props.tipoLista === "genero" ? item.nome : item.titulo}
                                         </td>
+                                        { /*----------------------------------------------------------- */}
                                         <td data-cell="Gênero" style={{ display: props.visibilidade }}>
                                             {
                                                 props.tipoLista === "filme"
@@ -49,11 +52,30 @@ const Lista = (props) => {
                                                     : "-"
                                             }
                                         </td>
+                                        {/*--------------------------------------------------------------- */}
+                                        <td
+                                            data-cell="Imagem"
+                                            style={{ display: props.visibilidade }}
+                                        >
+                                            {/* Segunda célula: mostra o nome do gênero caso o tipo da lista seja "filme".*/}
+                                            {/* adicionar essa linha depois de fazer o metd de lista filme: */}
+                                            {props.tipoLista === "filme" ? (
+                                                <img
+                                                    src={`${localAPIImagePath}imagens/${item.imagem}`}
+                                                />
+                                            ) : (
+                                                "-"
+                                            )}
+                                        </td>
+
+                                        {/*--------------------------------------------------------------- */}
                                         <td data-cell="Editar">
                                             <button className="icon" onClick={() => (props.funcEditar(item))}>
                                                 <img src={Editar} alt="Caneta" />
                                             </button>
                                         </td>
+
+                                        {/*--------------------------------------------------------------- */}
                                         <td data-cell="Excluir">
                                             <button className="icon" onClick={() => props.funcExcluir(item)}>
                                                 <img src={Excluir} alt="Lixeira" />

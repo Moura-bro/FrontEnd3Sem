@@ -26,7 +26,7 @@ const Cadastro = (props) => {
                     </div>
                     <div className="campo_cad_genero" style={{ display: props.visibilidade }}>
                         <label htmlFor="genero">Gênero</label>
-                        <select  value={props.generoSelecionado} onChange={(e) => props.setGeneroSelecionado(e.target.value)}  name="genero" id="">
+                        <select value={props.generoSelecionado} onChange={(e) => props.setGeneroSelecionado(e.target.value)} name="genero" id="">
                             <option value="">Selecione</option>
                             {
                                 props.listaGeneros?.map((item) => {
@@ -37,6 +37,21 @@ const Cadastro = (props) => {
                             }
                         </select>
                     </div>
+
+
+
+                    <div className="campos_cadastro" style={{ display: props.visibilidade }}>
+                        <input
+                            type="file"
+                            id="imageUpload"
+                            accept="image/*"
+                            value={props.imagem}
+                            onChange={(e) => {
+                                props.setImagem(e.target.files[0])
+                            }}
+                        />
+                    </div>
+
 
                     {
                         props.btnEditar && <Botao nomeDoBotao="Cancelar"

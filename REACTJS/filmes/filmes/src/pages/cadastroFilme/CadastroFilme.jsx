@@ -13,6 +13,9 @@ const CadastroFilme = () => {
   const [valor, setValor] = useState("")
   const [editar, setEditar] = useState(false)
   const [Id, setId] = useState()
+  const [imagem, setImagem] = useState(null);
+
+  /*----------------------------------------------- */
   const [listaFilmes, setListaFilmes] = useState([])
   const [listaGeneros, setListaGeneros] = useState([])
   const [generoSelecionado, setGeneroSelecionado] = useState("")
@@ -81,7 +84,7 @@ const CadastroFilme = () => {
 
     formData.append("titulo", valor);
     formData.append("idGenero", generoSelecionado);
-    formData.append("imagem", "default.jpg");
+    formData.append("imagem", imagem);
 
 
     // const objetocadastro = {
@@ -136,6 +139,7 @@ const CadastroFilme = () => {
     setEditar(true)
     setValor(item.titulo)
     setId(item.idFilme)
+    setImagem(item.imagem);
     setGeneroSelecionado(item.idGenero)
   }
 
@@ -158,12 +162,12 @@ const CadastroFilme = () => {
       return false;
     }
 
-     //Formdata
+    //Formdata
     const formData = new FormData();
 
     formData.append("titulo", valor);
     formData.append("idGenero", generoSelecionado);
-    formData.append("imagem", "default.jpg");
+    formData.append("imagem", imagem);
 
     try {
       const retornoAPI = await api.put(`/Filme/${Id}`, formData, {
@@ -248,6 +252,7 @@ const CadastroFilme = () => {
     setValor("");
     setGeneroSelecionado("");
     setEditar(false);
+    setImagem(null);
     setId(null);
   }
 
@@ -283,6 +288,7 @@ const CadastroFilme = () => {
           listaGeneros={listaGeneros}
           generoSelecionado={generoSelecionado}
           setGeneroSelecionado={setGeneroSelecionado}
+          setImagem={setImagem}
         />
 
         {/*Lista de Filmes*/}
